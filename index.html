@@ -65,7 +65,7 @@
         let randomRecommendation = "";
 
         async function generate() {
-            const response = await fetch("https://raw.githubusercontent.com/pranay-aggarwal/Auto-compliment-generator/master/data/food.csv");
+            const response = await fetch("https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/food.csv");
             const text = await response.text();
             foodRecommendations.length = 0;
             foodRecommendations.push(...text.split('\n'));
