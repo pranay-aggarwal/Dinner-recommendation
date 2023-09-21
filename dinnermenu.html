@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Recommendations</title>
+    <style>
+        body {
+            background-image: url('https://images.squarespace-cdn.com/content/v1/57363d65f8baf3384ab6adc4/1463183451031-TQ790XYFWMQH6IHDVD3S/web-bg.jpg?format=2500w'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); 
+            padding: 20px;
+            border-radius: 10px; 
+        }
+        #recommendation {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF69B4;
+            white-space: pre-wrap;
+        }
+        #emoji {
+            font-size: 40px;
+            color: #E30B5D;
+        }
+        #generateButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #searchButton {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="recommendation"></div>
+        <div id="emoji">🍲</div>
+        <button id="generateButton">Get Food Recommendation</button>
+        <button id="searchButton">Search YouTube</button>
+    </div>
+
+    <script>
+        const foodRecommendations = [];
+        let randomRecommendation = "";
+
+        async function generate() {
+            const response = await fetch("https://raw.githubusercontent.com/pranay-aggarwal/Auto-compliment-generator/master/data/food.csv");
+            const text = await response.text();
+            foodRecommendations.length = 0;
+            foodRecommendations.push(...text.split('\n'));
+
+            randomRecommendation = getRandomRecommendation();
+            document.getElementById('recommendation').textContent = randomRecommendation;
+        }
+
+        function getRandomRecommendation() {
+            return foodRecommendations[Math.floor(Math.random() * foodRecommendations.length)];
+        }
+
+        function searchYouTube(query) {
+            const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+            window.open(youtubeUrl, '_blank');
+        }
+
+        document.getElementById('generateButton').addEventListener('click', generate);
+        document.getElementById('searchButton').addEventListener('click', () => {
+            searchYouTube(randomRecommendation);
+        });
+
+        // Initial generation
+        generate();
+    </script>
+</body>
+</html>
