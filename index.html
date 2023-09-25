@@ -89,18 +89,6 @@
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
         }
 
-
-
-        #stamp {
-            color: #D61C5B;
-            font-size: 30px;
-            font-family: "Arial", sans-serif; 
-            position: absolute;
-            top: 20px; 
-            right: 20px; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
-        }
-
         #dropdown {
             color: #D61C5B;
             font-size: 16px;
@@ -169,13 +157,8 @@
         <p>Discover Dinner Choice: endless recipes, step-by-step videos.</p>
         <p>Cook with confidence every day!</p>
         <p><strong>Start Cooking with Joy!</strong></p>
-
-        
-</div>
-    <div id="stamp">Made by: Pranay Aggarwal</div>
-
-<div id="stamp">Made by: Pranay Aggarwal</div>
-
+     </div>
+    
     <script>
         const githubLinks = {
             "Select": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/select.csv",
@@ -212,7 +195,7 @@
             const text = await response.text();
             foodRecommendations.length = 0;
             foodRecommendations.push(...text.split('\n'));
-            generate(); // Call generate after fetching recommendations
+            generate(); 
         }
 
         function searchYouTube(query) {
