@@ -16,22 +16,28 @@
             min-height: 100vh;
             margin: 0;
         }
+
         #container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.7); 
             padding: 20px;
             border-radius: 10px; 
+            max-width: 600px;
+            width: 80%;
         }
+
         #recommendation {
             font-size: 18px;
             font-weight: bold;
             color: #D61C5B;
             white-space: pre-wrap;
         }
+
         #emoji {
             font-size: 40px;
             color: #D61C5B;
         }
+
         #generateButton, #searchButton {
             font-size: 16px;
             padding: 10px 20px;
@@ -40,12 +46,25 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
         }
-        
+
+        #dropdown {
+            padding: 10px 20px;
+            color: #D61C5B;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
         #how {
             margin-top: 20px;
             text-align: left;
-            max-width: 600px;
+            max-width: 90%;
         }
 
         #how h2 {
@@ -56,17 +75,18 @@
         #how p {
             font-size: 16px;
         }
+
         #tagline {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: center;
-            max-width: 600px;
+            max-width: 90%;
             font-family: "Pacifico", cursive;
             animation: bounce 2s infinite;
         }
 
         #tagline p {
             color: #FF69B4;
-            font-size: 28px;
+            font-size: 24px;
         }
 
         @keyframes bounce {
@@ -74,13 +94,13 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
         }
-        
+
         #title {
             color: #D61C5B;
-            font-size: 48px; 
+            font-size: 45px; 
             font-family: 'Montserrat', sans-serif;
             font-weight: bold; 
             position: absolute;
@@ -89,18 +109,9 @@
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
         }
 
-        #dropdown {
-            color: #D61C5B;
-            font-size: 16px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        @media screen and (max-width: 480px) {
-            body {
-                min-height: 80vh;
+        @media screen and (max-width: 768px) {
+            #container {
+                width: 90%;
             }
             #recommendation {
                 font-size: 24px;
@@ -111,26 +122,17 @@
             #generateButton, #searchButton, #dropdown {
                 font-size: 18px;
                 padding: 8px 16px;
-            
             }
             #title {
-                font-size: 30px;
-            }
-            #stamp {
-                font-size: 26px;
+                font-size: 36px;
             }
         }
-
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
-
-
-
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460622837078174" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div id="tagline">
@@ -211,6 +213,5 @@
         // Initial generation with the default GitHub link
         fetchRecommendations(githubLinks.Select);
     </script>
-
 </body>
 </html>
