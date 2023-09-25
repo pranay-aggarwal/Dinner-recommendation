@@ -16,10 +16,19 @@
             min-height: 100vh;
             margin: 0;
         }
+
         #container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.7); 
             padding: 20px;
+            border-radius: 10px; 
+        }
+
+        #container2 {
+            margin-top: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); 
+            padding: 10px;
             border-radius: 10px; 
         }
         #recommendation {
@@ -43,9 +52,9 @@
         }
         
         #how {
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: left;
-            max-width: 600px;
+            max-width: 800px;
         }
 
         #how h2 {
@@ -163,14 +172,15 @@
         <button id="generateButton">Get Food Recommendation</button>
         <button id="searchButton">Search YouTube</button>
     </div>
-    <div id="how">
-        <h2>Discover Dinner Choice: Your Culinary Solution</h2>
-        <p>Struggling with dinner decisions?</p>
-        <p>Discover Dinner Choice: endless recipes, step-by-step videos.</p>
-        <p>Cook with confidence every day!</p>
-        <p><strong>Start Cooking with Joy!</strong></p>
-     </div>
-    
+    <div id="container2">
+        <div id="how">
+            <h2>Discover Dinner Choice: Your Culinary Solution</h2>
+            <p>Struggling with dinner decisions?</p>
+            <p>Discover Dinner Choice: endless recipes, step-by-step videos.</p>
+            <p>Cook with confidence every day!</p>
+            <p><strong>Start Cooking with Joy!</strong></p>
+        </div>
+    </div>
     <script>
         const githubLinks = {
             "Select": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/select.csv",
