@@ -25,12 +25,12 @@
         #recommendation {
             font-size: 18px;
             font-weight: bold;
-            color: #FF69B4;
+            color: #D61C5B;
             white-space: pre-wrap;
         }
         #emoji {
             font-size: 40px;
-            color: #E30B5D;
+            color: #D61C5B;
         }
         #generateButton, #searchButton {
             font-size: 16px;
@@ -41,20 +41,58 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        
+        #how {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+        }
 
+        #how h2 {
+            color: #D61C5B;
+            font-size: 24px;
+        }
+
+        #how p {
+            font-size: 16px;
+        }
+        #tagline {
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 600px;
+            font-family: "Pacifico", cursive;
+            animation: bounce 2s infinite;
+        }
+
+        #tagline p {
+            color: #FF69B4;
+            font-size: 28px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
         
         #title {
-            color: #D61C5B; 
-    	    font-size: 35px; 
-            font-family: "Arial", sans-serif; 
+            color: #D61C5B;
+            font-size: 48px; 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold; 
             position: absolute;
-            top: 20px; 
-            left: 20px; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
-	    }
+            top: 20px;
+            left: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
+        }
 
-	    #stamp {
-    	    color: #D61C5B;
+
+
+        #stamp {
+            color: #D61C5B;
             font-size: 30px;
             font-family: "Arial", sans-serif; 
             position: absolute;
@@ -63,14 +101,13 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
         }
 
-        #dropdown{
-            color:#FF69B4;
+        #dropdown {
+            color: #D61C5B;
             font-size: 16px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-
         }
 
         @media screen and (max-width: 480px) {
@@ -97,12 +134,20 @@
         }
 
     </style>
-	
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460622837078174"
-     crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460622837078174" crossorigin="anonymous"></script>
 
 </head>
 <body>
+    <div id="tagline">
+        <p> Transform Boring Dinners into Culinary Adventures, Unleash Your Inner Chef! </p>
+    </div>
     <div id="title">Dinner Choice</div>
     <div id="container">
         <div id="recommendation"></div>
@@ -113,12 +158,23 @@
             <option value="Non-Veg">Non-Veg</option>
             <option value="Vegan">Vegan</option>
             <option value="Gluten free">Gluten free</option>
-            <option value="Protein Rich"> Protein Rich</option>
+            <option value="Protein Rich">Protein Rich</option>
         </select>
         <button id="generateButton">Get Food Recommendation</button>
         <button id="searchButton">Search YouTube</button>
     </div>
+    <div id="how">
+        <h2>Discover Dinner Choice: Your Culinary Solution</h2>
+        <p>Struggling with dinner decisions?</p>
+        <p>Discover Dinner Choice: endless recipes, step-by-step videos.</p>
+        <p>Cook with confidence every day!</p>
+        <p><strong>Start Cooking with Joy!</strong></p>
+
+        
+</div>
     <div id="stamp">Made by: Pranay Aggarwal</div>
+
+<div id="stamp">Made by: Pranay Aggarwal</div>
 
     <script>
         const githubLinks = {
@@ -127,8 +183,7 @@
             "Non-Veg": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/non-veg.csv",
             "Vegan": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/vegan.csv",
             "Gluten free": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/gluten-free.csv",
-            "Protein Rich" : "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/protein-rich.csv"
-
+            "Protein Rich": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/protein-rich.csv"
         };
 
         const foodRecommendations = [];
@@ -173,5 +228,6 @@
         // Initial generation with the default GitHub link
         fetchRecommendations(githubLinks.Select);
     </script>
+
 </body>
 </html>
