@@ -16,28 +16,22 @@
             min-height: 100vh;
             margin: 0;
         }
-
         #container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.7); 
             padding: 20px;
             border-radius: 10px; 
-            max-width: 600px;
-            width: 80%;
         }
-
         #recommendation {
             font-size: 18px;
             font-weight: bold;
             color: #D61C5B;
             white-space: pre-wrap;
         }
-
         #emoji {
             font-size: 40px;
             color: #D61C5B;
         }
-
         #generateButton, #searchButton {
             font-size: 16px;
             padding: 10px 20px;
@@ -46,25 +40,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
-            margin-bottom: 10px;
         }
-
-        #dropdown {
-            padding: 10px 20px;
-            color: #D61C5B;
-            font-size: 16px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-
+        
         #how {
             margin-top: 20px;
             text-align: left;
-            max-width: 90%;
+            max-width: 600px;
         }
 
         #how h2 {
@@ -75,18 +56,17 @@
         #how p {
             font-size: 16px;
         }
-
         #tagline {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             text-align: center;
-            max-width: 90%;
+            max-width: 600px;
             font-family: "Pacifico", cursive;
             animation: bounce 2s infinite;
         }
 
         #tagline p {
             color: #FF69B4;
-            font-size: 24px;
+            font-size: 28px;
         }
 
         @keyframes bounce {
@@ -94,13 +74,13 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
         }
-
+        
         #title {
             color: #D61C5B;
-            font-size: 45px; 
+            font-size: 48px; 
             font-family: 'Montserrat', sans-serif;
             font-weight: bold; 
             position: absolute;
@@ -109,34 +89,60 @@
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
         }
 
+        #dropdown {
+            color: #D61C5B;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         @media screen and (max-width: 480px) {
-            body {
-                min-height: 80vh;
-            }
+
             #recommendation {
-                font-size: 24px;
+                font-size: 16px;
             }
             #emoji {
-                font-size: 60px;
+                font-size: 20px;
             }
-            #generateButton, #searchButton, #dropdown {
-                font-size: 18px;
-                padding: 8px 16px;
+            #generateButton, #searchButton{
+                font-size: 8px;
+                padding: 10px 20px;
+            }
+          
+          	#dropdown {
+                font-size: 8px;
+                padding: 10px 20px;
             }
             #title {
-                font-size: 30px;
+                font-size: 28px;
             }
-            #stamp {
-                font-size: 26px;
+            #tagline p{
+                font-size: 18px;
             }
+         	#how {
+              font-size: 14px;
+          	}
+          	#how h2{
+              font-size: 16px;
+          	}
+          	#how p{
+              font-size: 12px;
+            }
+          
         }
+
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460622837078174" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div id="tagline">
@@ -217,5 +223,6 @@
         // Initial generation with the default GitHub link
         fetchRecommendations(githubLinks.Select);
     </script>
+
 </body>
 </html>
