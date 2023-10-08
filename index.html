@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+    <head>
     <title>Food Recommendations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Transform Boring Dinners into Culinary Adventures with Dinner Choice. Discover endless recipes and step-by-step videos. Cook with confidence every day!"> 
+
     <style>
         body {
             background-image: url('https://images.squarespace-cdn.com/content/v1/57363d65f8baf3384ab6adc4/1463183451031-TQ790XYFWMQH6IHDVD3S/web-bg.jpg?format=2500w'); 
@@ -20,29 +24,48 @@
         #container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.7); 
-            padding: 20px;
-            border-radius: 10px; 
+            padding: 10px;
+            border-radius: 10px;
+            width: 550px; 
+            margin: 10 auto; 
         }
 
         #container2 {
             margin-top: 10px;
             text-align: center;
             background-color: rgba(255, 255, 255, 0.7); 
+            padding: 10px;; 
             padding: 10px;
             border-radius: 10px; 
+            width: 550px; 
+            margin: 10 auto;
+            
         }
+
+        #container3 {
+            margin-top: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); 
+            padding: 10px;
+            border-radius: 10px; 
+            width: 550px; 
+            margin: 10 auto; 
+        }
+
         #recommendation {
             font-size: 18px;
             font-weight: bold;
             color: #D61C5B;
             white-space: pre-wrap;
         }
+
         #emoji {
             font-size: 40px;
             color: #D61C5B;
         }
+
         #generateButton, #searchButton {
-            font-size: 16px;
+            font-size: 14px;
             padding: 10px 20px;
             background-color: #FF69B4;
             color: white;
@@ -51,6 +74,17 @@
             cursor: pointer;
         }
         
+        #history {
+            color: #D61C5B;
+            text-align: left;
+        }
+
+        #recentRecipes{
+            color: #000000;
+            text-align: left;
+        }
+
+
         #how {
             margin-top: 10px;
             text-align: left;
@@ -65,18 +99,6 @@
         #how p {
             font-size: 16px;
         }
-        #tagline {
-            margin-bottom: 40px;
-            text-align: center;
-            max-width: 600px;
-            font-family: "Pacifico", cursive;
-            animation: bounce 2s infinite;
-        }
-
-        #tagline p {
-            color: #FF69B4;
-            font-size: 28px;
-        }
 
         @keyframes bounce {
             0%, 100% {
@@ -88,14 +110,23 @@
         }
         
         #title {
+            text-align: center;
+            max-width: 600px;
+            font-family: "Pacifico", cursive;
+            
+        }
+        
+        #title h1 {
             color: #D61C5B;
-            font-size: 48px; 
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold; 
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); 
+            font-size: 44px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        #title p {
+            color: #FF69B4;
+            font-size: 22px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;  
         }
 
         #dropdown {
@@ -116,8 +147,8 @@
                 font-size: 20px;
             }
             #generateButton, #searchButton{
-                font-size: 10px;
-                padding: 10px 14px;
+                font-size: 14px;
+                padding: 8px 16px;
             }
           
           	#dropdown {
@@ -154,10 +185,10 @@
 
 </head>
 <body>
-    <div id="tagline">
+    <div id="title">
+        <h1> Dinner Choice!! </h1>
         <p> Transform Boring Dinners into Culinary Adventures, Unleash Your Inner Chef! </p>
     </div>
-    <div id="title">Dinner Choice</div>
     <div id="container">
         <div id="recommendation"></div>
         <div id="emoji">🍲</div>
@@ -171,8 +202,19 @@
         </select>
         <button id="generateButton">Get Food Recommendation</button>
         <button id="searchButton">Search YouTube</button>
+
     </div>
+
     <div id="container2">
+        <div id="history">
+            <h2>Recommendation History</h2>
+            <div id="recentRecipes">
+                <h3>Recent Recipes</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="container3">
         <div id="how">
             <h2>Discover Dinner Choice: Your Culinary Solution</h2>
             <p>Struggling with dinner decisions?</p>
@@ -181,19 +223,8 @@
             <p><strong>Start Cooking with Joy!</strong></p>
         </div>
     </div>
+    
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460622837078174"
-     crossorigin="anonymous"> </script>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="autorelaxed"
-         data-ad-client="ca-pub-7460622837078174"
-         data-ad-slot="9599231454">
-    </ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-        
     <script>
         const githubLinks = {
             "Select": "https://raw.githubusercontent.com/pranay-aggarwal/Dinner-recommendation/master/data/select.csv",
@@ -206,10 +237,19 @@
 
         const foodRecommendations = [];
         let randomRecommendation = "";
+        const recentRecipes = [];
 
         async function generate() {
             randomRecommendation = getRandomRecommendation();
             document.getElementById('recommendation').textContent = randomRecommendation;
+
+            recentRecipes.unshift(randomRecommendation);
+    
+            if (recentRecipes.length > 5) {
+                recentRecipes.pop();
+            }
+
+            displayRecentRecipes()
         }
 
         function getRandomRecommendation() {
@@ -243,9 +283,24 @@
             searchYouTube(randomRecommendation);
         });
 
+        function displayRecentRecipes() {
+            const recentRecipesContainer = document.getElementById('recentRecipes');
+            recentRecipesContainer.innerHTML = '';
+
+            for (let i = 0; i < recentRecipes.length; i++) {
+                const recipeItem = document.createElement('div');
+                recipeItem.textContent = `${recentRecipes[i]}`;
+                recentRecipesContainer.appendChild(recipeItem);
+            }
+        }
+
+
         // Initial generation with the default GitHub link
-        fetchRecommendations(githubLinks.Select);
+        fetchRecommendations(githubLinks.Select).then(() => {
+        displayRecentRecipes();});
     </script>
+
+
 
 </body>
 </html>
